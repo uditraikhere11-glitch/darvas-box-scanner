@@ -96,7 +96,7 @@ def scan_darvas_breakouts(ticker, box_length=5, target_date=None):
 
 universe = [
     "RELIANCE.NS", "TCS.NS", "INFY.NS", "HDFCBANK.NS", "ICICIBANK.NS",
-    "BHARTIARTL.NS", "SBIN.NS", "LTIM.NS", "TATAMOTORS.NS", "SUNPHARMA.NS",
+    "BHARTIARTL.NS", "SBIN.NS", "LTM.NS", "TMPV.NS", "SUNPHARMA.NS",
     "NTPC.NS", "ONGC.NS", "POWERGRID.NS", "TITAN.NS", "BAJFINANCE.NS",
     "M&M.NS", "HHAL.NS", "TATASTEEL.NS", "ADANIENT.NS", "ETERNAL.NS"
 ]
@@ -104,7 +104,7 @@ results = []
 
 # You can change this to any specific date (YYYY-MM-DD format)
 # Set to None to scan the most recent trading day.
-TARGET_DATE = "2024-08-03" 
+TARGET_DATE = "2026-08-03" 
 
 print(f"Scanning for breakouts on: {TARGET_DATE if TARGET_DATE else 'Latest Day'}")
 
