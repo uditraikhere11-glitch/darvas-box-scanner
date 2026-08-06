@@ -104,7 +104,7 @@ results = []
 
 # You can change this to any specific date (YYYY-MM-DD format)
 # Set to None to scan the most recent trading day.
-TARGET_DATE = "2024-05-15" 
+TARGET_DATE = "2024-08-03" 
 
 print(f"Scanning for breakouts on: {TARGET_DATE if TARGET_DATE else 'Latest Day'}")
 
