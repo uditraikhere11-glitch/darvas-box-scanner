@@ -110,7 +110,7 @@ for stock in universe:
 
 if results:
     results_df = pd.DataFrame(results)
-    print("\nScan Results:")
-    print(results_df.to_string(index=False))
+     # Save scan outputs to JSON for the dashboard
+    results_df.to_json("scan_results.json", orient="records", date_format="iso")
 else:
     print(f"\nNo breakouts, follow-throughs, or failures detected on {TARGET_DATE}.")
