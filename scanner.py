@@ -94,7 +94,12 @@ def scan_darvas_breakouts(ticker, box_length=5, target_date=None):
 
 # --- Example Usage ---
 
-universe = ["RELIANCE.NS", "TCS.NS", "INFY.NS", "HDFCBANK.NS", "ZOMATO.NS"]
+universe = [
+    "RELIANCE.NS", "TCS.NS", "INFY.NS", "HDFCBANK.NS", "ICICIBANK.NS",
+    "BHARTIARTL.NS", "SBIN.NS", "LTIM.NS", "TATAMOTORS.NS", "SUNPHARMA.NS",
+    "NTPC.NS", "ONGC.NS", "POWERGRID.NS", "TITAN.NS", "BAJFINANCE.NS",
+    "M&M.NS", "HHAL.NS", "TATASTEEL.NS", "ADANIENT.NS", "ETERNAL.NS"
+]
 results = []
 
 # You can change this to any specific date (YYYY-MM-DD format)
@@ -108,9 +113,15 @@ for stock in universe:
     if data:
         results.append(data)
 
+import json
+
+# --- Output Handling ---
 if results:
     results_df = pd.DataFrame(results)
-     # Save scan outputs to JSON for the dashboard
     results_df.to_json("scan_results.json", orient="records", date_format="iso")
+    print(f"Successfully saved {len(results)} signal(s) to scan_results.json")
 else:
-    print(f"\nNo breakouts, follow-throughs, or failures detected on {TARGET_DATE}.")
+    # Always create the file so the website can read a valid empty list []
+    with open("scan_results.json", "w") as f:
+        json.dump([], f)
+    print("No signals triggered today. Created empty scan_results.json")
